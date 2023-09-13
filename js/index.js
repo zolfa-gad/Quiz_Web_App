@@ -27,9 +27,9 @@ function displayListCategories(categoryObjects) {
 
   for (let i = 1; i < categoryObjects.length; i++) {
     console.log(categoryObjects[i].name);
-    resultCategory += `<div onclick='changeBackgroundColor(this,"categoryItem")' id="${categoryObjects[i].id}" class="categoryItem p-3 rounded-3   bg-default text-light fs-5">
+    resultCategory += `<span onclick='changeBackgroundColor(this,"categoryItem")' id="${categoryObjects[i].id}" class="categoryItem p-3 rounded-3   bg-default text-light fs-5">
     ${categoryObjects[i].name}
-  </div>`;
+  </span>`;
 
     // resultCategory += `
     //       <option  value="${categoryObjects[i].id}" >${categoryObjects[i].name}</option>

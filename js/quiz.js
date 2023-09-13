@@ -1,26 +1,74 @@
+let alphaIcons = [
+  '<i class="fa-solid fa-a font-default fa-lg fs-3"></i>',
+  '<i class="fa-solid fa-b font-default fa-lg fs-3"></i>',
+  '<i class="fa-solid fa-c font-default fa-lg fs-3"></i>',
+  '<i class="fa-solid fa-d font-default fa-lg fs-3"></i>',
+  '<i class="fa-solid fa-e font-default fa-lg fs-3"></i>',
+  '<i class="fa-solid fa-f font-default fa-lg fs-3"></i>',
+];
+
+let choicesBtns = document.getElementsByClassName("choice");
+let quizElement = document.getElementById("quiz");
+let scoreElement = document.getElementById("score");
+let liveElement = document.getElementById("lives");
+let choiceList = document.getElementById("choiceList");
+let quizNumber = document.getElementById("quizNumber");
+let scoreValue = 0;
 let quizArray = [];
-let answersBtn = document.getElementsByClassName("answer");
-let quiz = document.getElementById("quiz");
-let quizNum = document.getElementById("quizNum");
-let scoreValue = document.getElementById("score");
-let lifesValue = document.getElementById("life");
-// let answersList = document.getElementById("answersList");
 let quizIndex = 0;
 
-if (sessionStorage.getItem("quizIndex") != null) {
-  quizIndex = JSON.parse(sessionStorage.getItem("quizIndex"));
-}
-let score = 0;
-if (sessionStorage.getItem("score") != null) {
-  score = Number(JSON.parse(sessionStorage.getItem("quizIndex")));
-}
-quizArray = JSON.parse(sessionStorage.getItem("quizArray"));
+let currentUser = null;
 
-quizNum.innerHTML = quizIndex + 1;
+if (sessionStorage.getItem("quizArray") != null) {
+  quizArray = JSON.parse(sessionStorage.getItem("quizArray"));
+  console.log(quizArray, "array");
+}
+
+if (sessionStorage.getItem("currentUser") != null) {
+  currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  console.log(currentUser, "currentUser");
+  scoreValue = currentUser.score;
+  scoreElement.innerHTML = scoreValue;
+  quizIndex = currentUser.quizIndex;
+  quizElement.innerHTML = quizArray[quizIndex].question;
+  quizNumber.innerHTML = quizIndex + 1;
+  displayLivesElement(currentUser.lives);
+  displayNextQuiz();
+}
+
+function displayLivesElement(count) {
+  let cartona = "";
+  if (count == 3) {
+    for (let i = 0; i < count; i++) {
+      cartona += `<li><i class="fa-solid fa-heart text-danger fa-lg"></i></li>`;
+    }
+  } else {
+    for (let i = 0; i < count; i++) {
+      cartona += `<li><i class="fa-solid fa-heart text-danger fa-lg"></i></li>`;
+    }
+    for (let i = count; i < 3; i++) {
+      cartona += `<li><i class="fa-regular fa-heart text-danger fa-lg"></i></li>`;
+    }
+  }
+
+  liveElement.innerHTML = cartona;
+}
+
+// if (sessionStorage.getItem("quizIndex") != null) {
+//   quizIndex = JSON.parse(sessionStorage.getItem("quizIndex"));
+// }
+// let score = 0;
+// if (sessionStorage.getItem("score") != null) {
+//   score = Number(JSON.parse(sessionStorage.getItem("quizIndex")));
+// }
+// quizArray = JSON.parse(sessionStorage.getItem("quizArray"));
+
+// quizNum.innerHTML = quizIndex + 1;
 
 function setUpPage() {
+  // displayNextQuiz();
   // setTimeout(function () {
-  changeQuiz();
+  // changeQuiz();
   //   }, 1000);
   //   if (JSON.parse(sessionStorage.getItem("quizArray") != null)) {
   // quiz.innerHTML = quizArray[quizIndex].question;
@@ -32,25 +80,27 @@ function setUpPage() {
   //   }
 }
 
-// function creatAnswerButton() {
-//   let cartona = "";
-//   for (let i = 0; i < quizArray[quizIndex].incorrect_answers.length + 1; i++) {
-//     let button = document.createElement("button");
-//     cartona += `<button
-// class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
-// >
-// ${9}
-// </button>`;
-//   }
-//   answersList.innerHTML = cartona;
-// }
+// // function creatAnswerButton() {
+// //   let cartona = "";
+// //   for (let i = 0; i < quizArray[quizIndex].incorrect_answers.length + 1; i++) {
+// //     let button = document.createElement("button");
+// //     cartona += `<button
+// // class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
+// // >
+// // ${9}
+// // </button>`;
+// //   }
+// //   answersList.innerHTML = cartona;
+// // }
 
-function changeQuiz() {
+function displayNextQuiz() {
   console.log(quizArray);
   console.log(quizArray[quizIndex]);
   console.log(quiz.value);
-  quizNum.innerHTML = quizIndex + 1;
-  quiz.innerHTML = quizArray[quizIndex].question;
+  // quizNum.innerHTML = quizIndex + 1;
+  // quizIndex++;
+  quizElement.innerHTML = quizArray[quizIndex].question;
+  quizNumber.innerHTML = quizIndex + 1;
 
   let answers = [];
   answers.push(quizArray[quizIndex].correct_answer);
@@ -59,18 +109,29 @@ function changeQuiz() {
     answers.push(quizArray[quizIndex].incorrect_answers[i]);
     console.log(answers);
   }
+  diplayChoiceButtons(answers);
+  // quizIndex++;
+  // currentUser.quizIndex = quizIndex;
 
+  //   if (quizIndex == quizArray.length) {
+  //     // quizIndex--;
+  //     quizIndex = quizArray.length ;
+  //     console.log("finally");
+  //   }
+}
+
+function diplayChoiceButtons(answers) {
   let cartona = "";
 
   for (let i = 0; i < quizArray[quizIndex].incorrect_answers.length + 1; i++) {
     let randomNum = Math.floor(Math.random() * answers.length);
     console.log(randomNum, "random");
 
-    cartona += `<button 
-        class="answer btn btn-dark p-3 m-2 fs-4 align-self-center"
+    cartona += `<button
+        class="answer btn btn-dark p-3 m-2 fs-4 align-self-center d-flex align-items-center justify-content-start gap-3"
         onclick="checkIfCorrectAnswer(this)"
         >
-        ${answers[randomNum]}
+        ${alphaIcons[i]}  ${answers[randomNum]}
         </button>`;
 
     // answersBtn[i].innerHTML = answers[randomNum];
@@ -79,13 +140,7 @@ function changeQuiz() {
     console.log(answers);
   }
 
-  answersList.innerHTML = cartona;
-
-  //   if (quizIndex == quizArray.length) {
-  //     // quizIndex--;
-  //     quizIndex = quizArray.length ;
-  //     console.log("finally");
-  //   }
+  choiceList.innerHTML = cartona;
 }
 
 function checkIfCorrectAnswer(self) {
@@ -97,25 +152,40 @@ function checkIfCorrectAnswer(self) {
 
   if (self.innerText == quizArray[quizIndex].correct_answer) {
     quizIndex++;
-    sessionStorage.setItem("quizIndex", quizIndex);
-    console.log(quizIndex, "index");
-    console.log("changeQuiz");
-    score += 100;
-    scoreValue.innerHTML = score;
-    console.log(scoreValue.innerHTML);
+    scoreValue += 100;
+    scoreElement.innerHTML = scoreValue;
+    currentUser.score = scoreValue;
+
+    // sessionStorage.setItem("quizIndex", quizIndex);
+    // console.log(quizIndex, "index");
+    // console.log("changeQuiz");
+    // console.log(scoreValue.innerHTML);
+    self.classList.remove("btn-dark");
     self.classList.add("btn-success");
-    changeQuiz();
+    displayNextQuiz();
+    // changeQuiz();
   } else {
-    self.classList.add("btn-danger");
-    lifesValue -= 1;
+    self.setAttribute("disabled", "disabled");
+    // self.classList.remove("btn-dark");
+    // self.classList.add("btn-outline-default");
+    currentUser.lives -= 1;
+    displayLivesElement(currentUser.lives);
+
+    // lifesValue -= 1;
   }
+  sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+  // if the index is the last you finished successfully
+  // else if the lives is 0 good luck in the next time "Better luck next time"
 
   if (quizIndex == quizArray.length) {
     // quizIndex--;
     quizIndex = quizArray.length;
     // quiz.innerHTML = "Finish";
     // show score
-    console.log("finally");
+    console.log("Finished Successfully");
+  } else if (currentUser.lives == 0) {
+    console.log("Better luck next time");
   }
   //  else {
   //   changeQuiz();
@@ -136,3 +206,10 @@ function checkIfCorrectAnswer(self) {
 // {
 //     console.log(i);
 // }
+
+// let cartona = "";
+// for (let i = 0; i < alphaIcons.length; i++) {
+//   cartona += alphaIcons[i];
+//   // console.log(cartona);
+// }
+// document.getElementById("choiceList").innerHTML = cartona;
