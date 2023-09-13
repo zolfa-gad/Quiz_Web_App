@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Register To App</title>
+  </head>
+  <body class="h-100 bg-dark d-flex justify-content-center align-items-center">
+    <main
+      class="w-50 bg-white bg-gradient p-5 rounded-3 text-center d-flex flex-column justify-content-center align-items-center gap-3"
+    >
+      <h1 class="fs-1 fw-bolder mb-4" id="account">Create Account</h1>
+
+      <!-- <label for="name" class="form-control-lg align-self-start ">Name</label> -->
+      <input
+        type="text"
+        class="form-control-lg align-self-start w-100"
+        id="name"
+        placeholder="Enter Your Name"
+      />
+
+      <input
+        type="email"
+        class="form-control-lg align-self-start w-100"
+        id="email"
+        placeholder="Enter Your Email Address"
+      />
+
+      <button
+        class="btn btn-outline-primary fs-4 fw-bold"
+        onclick="submitUserData()"
+      >
+        Register
+      </button>
+    </main>
+    <script src="js/register.js"></script>
+  </body>
+</html>

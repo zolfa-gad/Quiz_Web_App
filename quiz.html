@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <title>Fun Quiz App</title>
+  </head>
+  <body class="vh-100" onload="setUpPage()">
+    <main class="bg-dark h-100">
+      <section
+        class="d-flex flex-column justify-content-center align-items-center h-100"
+      >
+        <!-- <div class="btn text-light p-5 fs-1">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div> -->
+        <div
+          class="bg-warning w-75 shadow-lg rounded-3 p-5 text-center d-flex flex-column justify-content-between"
+        >
+          <div class="d-flex justify-content-between">
+            <div
+              class="p-3 bg-light shadow bg-gradient d-flex justify-content-center align-items-center rounded-circle"
+              id="boxNum"
+            >
+              <h2 class="fw-bolder" id="quizNum">1</h2>
+            </div>
+            <div
+              class="p-3 bg-light shadow bg-gradient d-flex justify-content-center align-items-center rounded-3"
+            >
+              <span class="fw-bolder fs-4"> Score:</span>
+              <span id="score" class="fw-bold fs-5">100</span>
+            </div>
+          </div>
+
+          <p class="fw-bold fs-4 p-2" id="quiz">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+            itaque, voluptates vitae.
+          </p>
+
+          <div class=" d-flex flex-column  justify-content-center align-content-center" id="answersList">
+            <!-- <button 
+                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
+              >
+                Submit 1
+              </button>
+              <button 
+                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
+              >
+                Submit 2
+              </button>
+              <button 
+                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
+              >
+                Submit 3
+              </button>
+              <button 
+                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
+              >
+                Submit 4
+              </button> -->
+          </div>
+        </div>
+        <!-- <div class="btn text-light p-5 fs-1" onclick="changeQuiz()">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div> -->
+      </section>
+    </main>
+
+    <script src="js/jQueryLibrary.js"></script>
+    <script src="js/script-quiz.js"></script>
+  </body>
+</html>

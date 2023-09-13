@@ -1,0 +1,45 @@
+/* #categoryList {
+  max-height: 100px;
+} */
+
+#boxNum {
+  width: 60px;
+  height: 60px;
+}
+
+.answer {
+  min-width: 50%;
+}
+
+#account {
+  text-shadow: 3px 3px 10px black;
+}
+
+.categoryItem:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  z-index: 10;
+}
+.difficultyItem:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.btn-default {
+  background-color: blueviolet;
+}
+
+.bg-default {
+  background-color: blueviolet;
+  color: white;
+}
+
+/* .categoryItem{
+   display: inline;
+} */
+
+/* #categoryList {
+    display: grid;
+    grid-auto-flow: column;
+  } */
