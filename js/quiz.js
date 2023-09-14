@@ -117,6 +117,7 @@ function checkIfCorrectAnswer(self) {
 
   if (self.innerText == quizArray[quizIndex].correct_answer) {
     quizIndex++;
+    currentUser.quizIndex=quizIndex;
     scoreValue += 100;
     scoreElement.innerHTML = scoreValue;
     currentUser.score = scoreValue;
