@@ -5,36 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Register To App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <title>Fun Quiz App</title>
   </head>
-  <body class="h-100 bg-dark d-flex justify-content-center align-items-center">
+  <body class="h-100" >
     <main
-      class="w-50 bg-white bg-gradient p-5 rounded-3 text-center d-flex flex-column justify-content-center align-items-center gap-3"
+      class="bg-dark min-vh-100 d-flex align-items-center justify-content-center"
     >
-      <h1 class="fs-1 fw-bolder mb-4" id="account">Create Account</h1>
+      <section class="container">
+        <!-- div for main white card  -->
+        <div class="bg-light bg-gradient shadow-lg rounded-3 p-4 h-100 m-5">
+          <!-- div for all elements -->
+          <div
+            class="d-flex flex-column justify-content-center align-items-center text-center gap-4"
+          >
+            <!-- will add user name -->
+            <!-- <h2  class="fw-bolder fs-1 p-2 shadow-teal">Welcome</h2> -->
+            <h2 class="fw-bolder fs-1 p-2 shadow-teal">Create Account</h2>
 
-      <!-- <label for="name" class="form-control-lg align-self-start ">Name</label> -->
-      <input
-        type="text"
-        class="form-control-lg align-self-start w-100"
-        id="name"
-        placeholder="Enter Your Name"
-      />
+            <p class="lead w-75">
+              Create an account to get started. Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Cumque accusantium suscipit commodi,
+              animi vitae, harum inventore vel nihil eos aperiam possimus. Vel
+              minus rerum esse unde natus, rem voluptas iusto!
+            </p>
 
-      <input
-        type="email"
-        class="form-control-lg align-self-start w-100"
-        id="email"
-        placeholder="Enter Your Email Address"
-      />
+            <!-- input Elemenets -->
+            <div
+              class="d-flex flex-column justify-content-between align-items-center gap-3 w-50"
+            >
+              <input
+                type="text"
+                class="form-control-lg w-100 bg-teal-opacity"
+                id="name"
+                placeholder="Enter Your Name"
+              />
 
-      <button
-        class="btn btn-outline-primary fs-4 fw-bold"
-        onclick="submitUserData()"
-      >
-        Register
-      </button>
+              <input
+                type="email"
+                class="form-control-lg w-100 bg-teal-opacity"
+                id="email"
+                placeholder="Enter Your Email Address"
+              />
+            </div>
+
+            <button
+              class="btn bg-dark rounded-pill text-light p-2 fs-5 mt-3 px-5"
+              onclick="submitUserData()"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <script src="js/jQueryLibrary.js"></script>
     <script src="js/register.js"></script>
   </body>
 </html>
+

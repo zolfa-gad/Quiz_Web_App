@@ -7,6 +7,9 @@ document.getElementById("greeting").innerText += ` ${
   userName.charAt(0).toUpperCase() + userName.slice(1)
 }`;
 
+let selectedCategory = "";
+let selectedDifficulty = "";
+
 async function getCategoriesFromApi(callback) {
   let categoryURL = "https://opentdb.com/api_category.php";
   console.log(location.href.endsWith("index.html"), "href");
@@ -67,9 +70,6 @@ async function getSelectedQuestions() {
   location.replace("quiz.html");
   // }, 50);
 }
-
-let selectedCategory = "";
-let selectedDifficulty = "";
 
 function changeBackgroundColor(self, className) {
   let elements = document.getElementsByClassName(className);

@@ -18,31 +18,21 @@
     >
       <section class="container">
         <!-- div for main white card  -->
-        <div class="bg-light bg-gradient shadow-lg rounded-3 p-4 h-100">
+        <div class="bg-light bg-gradient shadow-lg rounded-3 p-4 h-100 m-5">
           <!-- div for all elements -->
           <div
             class="d-flex flex-column justify-content-center align-items-center text-center"
           >
             <!-- will add user name -->
-            <h2 id="greeting" class="fw-bolder fs-2 p-2">Welcome</h2>
-            <p class="lead w-75">
-              Choose one from categories below & see hoe many questions you can
-              answer correctly out of 10 question!
-            </p>
-            <!-- div for category list -->
-            <div
-              id="categoryList"
-              class="border border-2 d-flex flex-wrap justify-content-center align-items-center gap-3 p-4"
-            >
-              <div class="bg-default rounded-2 p-3">Loading...</div>
-            </div>
+            <h2  id="greeting" class="fw-bolder fs-1 p-2 shadow-teal">Welcome</h2>
+
             <p class="lead w-75 p-2">Choose difficulty you want</p>
 
             <!-- div for difficulty list -->
 
             <div
               id="difficultyList"
-              class="border border-2 d-flex flex-wrap justify-content-center align-items-center gap-3 p-4"
+              class="d-flex flex-wrap justify-content-center align-items-center gap-3 p-4"
             >
               <div
                 onclick="changeBackgroundColor(this,'difficultyItem')"
@@ -67,8 +57,20 @@
               </div>
             </div>
 
+            <p class="lead w-75">
+              Choose one from categories below & see hoe many questions you can
+              answer correctly out of 10 question!
+            </p>
+            <!-- div for category list -->
+            <div
+              id="categoryList"
+              class="d-flex flex-wrap justify-content-center align-items-center gap-3 p-4"
+            >
+              <div class="bg-default rounded-2 p-3">Loading...</div>
+            </div>
+
             <button
-              class="bg-dark rounded-pill text-light p-2 fs-5 px-3 m-3"
+              class="btn bg-dark rounded-pill text-light p-2 fs-5 mt-3 px-5"
               onclick="getSelectedQuestions()"
             >
               Start Quiz

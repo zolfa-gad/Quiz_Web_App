@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-
-    <title>Fun Quiz App</title>
-  </head>
-  <body class="vh-100">
-    <main
-      class="bg-dark min-vh-100 d-flex flex-column align-items-center justify-content-center p-5"
-    >
-      <!-- background elements -->
-
-      <!-- div for main white card  -->
-      <div class="bg-light bg-gradient shadow-lg rounded-3 h-100">
+   <div class="bg-light bg-gradient shadow-lg rounded-3 h-100">
         <!-- div for bar  -->
         <div id="bar">
           <div id="barBack" class="bar rounded-2">
@@ -33,7 +12,7 @@
         >
           <!-- div for first row -->
           <div
-            class="d-md-flex justify-content-between align-items-center w-100 p-2"
+            class="d-flex justify-content-between align-items-center w-100 p-2"
           >
             <!-- lives -->
             <div
@@ -71,38 +50,56 @@
           <!-- div for choices list -->
           <div
             id="choiceList"
-            class="d-flex flex-wrap justify-content-center align-items-center gap-3 p-4"
+            class="border border-2 d-flex flex-wrap justify-content-center align-items-center gap-3 p-4"
           >
             <div class="bg-default rounded-2 p-3">Loading...</div>
           </div>
         </div>
       </div>
-    </main>
 
-    <script src="js/jQueryLibrary.js"></script>
-    <script src="js/quiz.js"></script>
+
+
+      ////////////////////////////////////////////////////////////////////////////
+
+      <!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Register To App</title>
+  </head>
+  <body class="h-100 bg-dark d-flex justify-content-center align-items-center">
+    <main
+      class="w-50 bg-white bg-gradient p-5 rounded-3 text-center d-flex flex-column justify-content-center align-items-center gap-3"
+    >
+      <!-- <h1 class="fs-1 fw-bolder mb-4" id="account">Create Account</h1> -->
+      <h2 id="greeting" class="fw-bolder fs-1 p-2 shadow-teal">
+        Create Account
+      </h2>
+
+      <!-- <label for="name" class="form-control-lg align-self-start ">Name</label> -->
+      <input
+        type="text"
+        class="form-control-lg align-self-start w-100"
+        id="name"
+        placeholder="Enter Your Name"
+      />
+
+      <input
+        type="email"
+        class="form-control-lg align-self-start w-100"
+        id="email"
+        placeholder="Enter Your Email Address"
+      />
+      <button
+        class="bg-dark rounded-pill text-light p-2 fs-5 mt-3 px-5"
+        onclick="submitUserData()"
+      >
+        Register
+      </button>
+    </main>
+    <script src="js/register.js"></script>
   </body>
 </html>
-
-<!-- <button 
-                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
-              >
-                Submit 1
-              </button>
-              <button 
-                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
-              >
-                Submit 2
-              </button>
-              <button 
-                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
-              >
-                Submit 3
-              </button>
-              <button 
-                class="answer btn btn-primary p-3 m-2 fs-4 w-50 align-self-center"
-              >
-                Submit 4
-              </button> 
-            </div>
-          </div> -->
